@@ -16,17 +16,17 @@ interface MongooseCache {
   promise: Promise<typeof mongoose> | null;
 }
 
-// Extend the global object to include our mongoose cache
+// Extend globalThis to include our mongoose cache (using __mongoose to avoid naming conflict)
 declare global {
   // eslint-disable-next-line no-var
-  var mongoose: MongooseCache | undefined;
+  var __mongoose: MongooseCache | undefined;
 }
 
-// Initialize the cache on the global object to survive hot reloads in development
-const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
+// Initialize the cache on globalThis to survive hot reloads in development
+const cached: MongooseCache = globalThis.__mongoose || { conn: null, promise: null };
 
-if (!global.mongoose) {
-  global.mongoose = cached;
+if (!globalThis.__mongoose) {
+  globalThis.__mongoose = cached;
 }
 
 /**

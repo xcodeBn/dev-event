@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     authors: [{name:"Hassan Bazzoun", url: "https://github.com/xcodeBn"}],
 };
 
+/**
+ * Root layout component that wraps pages with global fonts, navigation, an animated background, and a main content container.
+ *
+ * @param children - The page content to render inside the layout.
+ * @returns The root HTML structure including `<html>` and `<body>` with applied font variables, the `NavBar`, the `LightRays` background layer, and a `<main>` element that contains `children`.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

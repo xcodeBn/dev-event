@@ -6,7 +6,7 @@ const Welcome = () => {
             <h1 className={"text-center capitalize"}>The hub for every dev <br/> Events you can&#39;t miss!</h1>
             <p className={"text-center"}>Hackathons, Meetup, and Conferences All in one place</p>
             <ExploreBtn/>
-            <div className={"mt-20 space-y-7 h-3"}>
+            <div id="events" className={"mt-20 space-y-7 h-3"}>
                 <h3>
                     Featured Events
                 </h3>

@@ -30,10 +30,11 @@ if (!globalThis.__mongoose) {
 }
 
 /**
- * Establishes a connection to MongoDB using Mongoose.
- * Caches the connection to prevent creating multiple connections during development hot reloads.
- * 
- * @returns Promise that resolves to the Mongoose instance
+ * Connects to MongoDB via Mongoose and caches the connection for reuse across hot reloads.
+ *
+ * Caches an in-flight connection promise to avoid duplicate connection attempts and stores the resolved connection for subsequent calls.
+ *
+ * @returns The connected Mongoose instance
  */
 async function connectDB(): Promise<typeof mongoose> {
   // Return existing connection if available
